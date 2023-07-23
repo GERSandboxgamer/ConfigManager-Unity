@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"Alle Klassen und Schnittstellen","u":"allclasses-index.html"},{"p":"de.sbg.unity.configmanager","l":"ConfigData"},{"p":"de.sbg.unity.configmanager","l":"ConfigManager"},{"p":"de.sbg.unity.configmanager","l":"Update"}];updateSearchResults();
