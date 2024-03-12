@@ -19,7 +19,7 @@ public class ConfigManager extends Plugin {
         this.Configs = new HashMap<>();
         Console.sendInfo("Check for Updates...");
         try {
-            Update up = new Update(this, "http://gs.sandboxgamer.de/downloads/Plugins/risingworld/unity/ConfigManager/version.txt");
+            Update up = new Update(this, "https://www.sandboxgamer.de/Downloads/Plugins/risingworld/unity/ConfigManager/version.txt");
         } catch (IOException | URISyntaxException ioex) {
             Console.sendErr("Update", "Can not lock for new Version of the plugin!");
         }

@@ -4,11 +4,12 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Scanner;
+import net.risingworld.api.Internals;
 import net.risingworld.api.Plugin;
 import net.risingworld.api.Server;
 import net.risingworld.api.events.EventMethod;
 import net.risingworld.api.events.Listener;
-import net.risingworld.api.events.player.PlayerConnectEvent;
+import net.risingworld.api.events.player.PlayerSpawnEvent;
 import net.risingworld.api.objects.Player;
 
 /**
@@ -53,14 +54,14 @@ public final class Update implements Listener {
             plugin.registerEventListener(this);
             if (console) {
 
-                System.out.println("[" + Plugin + "-Warning] [Update] -------- New Update --------");
-                System.out.println("[" + Plugin + "-Warning] [Update] Plugin is NOT up to date");
-                System.out.println("[" + Plugin + "-Warning] [Update] Current Version: " + currentVersion);
-                System.out.println("[" + Plugin + "-Warning] [Update]     New Version: " + resultString);
-                System.out.println("[" + Plugin + "-Warning] [Update] ----------------------------");
+                Internals.println("[" + Plugin + "-Warning] [Update] -------- New Update --------", 14);
+                Internals.println("[" + Plugin + "-Warning] [Update] Plugin is NOT up to date", 14);
+                Internals.println("[" + Plugin + "-Warning] [Update] Current Version: " + currentVersion, 14);
+                Internals.println("[" + Plugin + "-Warning] [Update]     New Version: " + resultString, 14);
+                Internals.println("[" + Plugin + "-Warning] [Update] ----------------------------", 14);
             }
         } else {
-            System.out.println("[" + Plugin + "-Info] [Update] Plugin is up to date!");
+            Internals.println("[" + Plugin + "-Info] [Update] Plugin is up to date!", 10);
         }
     }
 
@@ -90,17 +91,21 @@ public final class Update implements Listener {
     }
 
     @EventMethod
-    public void onPlayerConnectEvent(PlayerConnectEvent event) {
+    public void onPlayerConnectEvent(PlayerSpawnEvent event) {
         Player player = event.getPlayer();
         if (hasUpdate()) {
             if (Server.getType() == Server.Type.Singleplayer) {
-                player.sendTextMessage("[#ffa500][" + plugin.getDescription("name") + "] Plugin has an update!");
+                player.sendTextMessage(Color("Orange", "[" + plugin.getDescription("name") + "] Plugin has an update!"));
             } else {
                 if (player.isAdmin()) {
-                    player.sendTextMessage("[#ffa500][" + plugin.getDescription("name") + "] Plugin has an update!");
+                    player.sendTextMessage(Color("Orange", "[" + plugin.getDescription("name") + "] Plugin has an update!"));
                 }
             }
         }
+    }
+    
+    private String Color(String color, String text) {
+        return "<color=" + color + ">" + text + "</color>";
     }
 
 }

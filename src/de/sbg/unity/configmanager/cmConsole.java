@@ -1,5 +1,7 @@
 package de.sbg.unity.configmanager;
 
+import net.risingworld.api.Internals;
+
 /**
  * Send text to the Console
  * @hidden Only for dev
@@ -22,7 +24,7 @@ public class cmConsole {
      * @param msg
      */
     public void sendInfo(Object msg) {
-        System.out.println("[" + plugin.getDescription("name") + "-Info] " + msg);
+        Internals.println("[" + plugin.getDescription("name") + "-Info] " + msg, 10);
     }
 
     /**
@@ -31,7 +33,7 @@ public class cmConsole {
      * @param msg
      */
     public void sendInfo(String ClassName, Object msg) {
-        System.out.println("[" + plugin.getDescription("name") + "-Info] [" + ClassName + "] " + msg);
+        Internals.println("[" + plugin.getDescription("name") + "-Info] [" + ClassName + "] " + msg, 10);
     }
         
     /**
@@ -56,7 +58,7 @@ public class cmConsole {
      * @param msg
      */
     public void sendWarning(Object msg) {
-        System.out.println("[" + plugin.getDescription("name") + "-Warning] " + msg);
+        Internals.println("[" + plugin.getDescription("name") + "-Warning] " + msg, 14);
     }
 
     /**
@@ -65,7 +67,7 @@ public class cmConsole {
      * @param msg
      */
     public void sendWarning(String ClassName, Object msg) {
-        System.out.println("[" + plugin.getDescription("name") + "-Warning] [" + ClassName + "] " + msg);
+        Internals.println("[" + plugin.getDescription("name") + "-Warning] [" + ClassName + "] " + msg, 14);
     }
     
     /**
@@ -73,7 +75,7 @@ public class cmConsole {
      * @param msg
      */
     public void sendDebug(Object msg) {
-        System.out.println("[" + plugin.getDescription("name") + "-Debug] " + msg);
+        Internals.println("[" + plugin.getDescription("name") + "-Debug] " + msg, 7);
     }
 
     /**
@@ -82,7 +84,7 @@ public class cmConsole {
      * @param msg
      */
     public void sendDebug(String ClassName, Object msg) {
-        System.out.println("[" + plugin.getDescription("name") + "-Debug] [" + ClassName + "] " + msg);
+        Internals.println("[" + plugin.getDescription("name") + "-Debug] [" + ClassName + "] " + msg, 7);
     }
     
 }
