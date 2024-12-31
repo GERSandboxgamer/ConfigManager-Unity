@@ -1,0 +1,6 @@
+name: ConfigManager
+main: de.sbg.unity.configmanager.ConfigManager
+version: 2.0.5
+author: Sandboxgamer
+description: "Manage Configs"
+loadorder: -1000
